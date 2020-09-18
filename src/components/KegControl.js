@@ -29,6 +29,10 @@ class KegControl extends React.Component {
       alcoholContent: alcoholContent
     }
     dispatch(action);
+    const action2 = {
+      type: 'TOGGLE_FORM'
+    }
+    dispatch(action2);
   }
 
   handleClick = () => {
