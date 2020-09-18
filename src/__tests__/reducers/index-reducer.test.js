@@ -18,6 +18,19 @@ describe("rootReducer", () => {
   });
 
   test('Check that initial state of kegListReducer matches root reducer', () => {
-    expect(store.getState().masterKegList).toEqual(kegListReducer(undefined, { type: null }));
+    const action = {
+      type: 'ADD_KEG',
+      kegName: 'Weasel Whistle',
+      brewery: 'Old Weasel Brewery',
+      price: '$45',
+      alcoholContent: 15,
+      pints: 124,
+      id: 1
+    }
+
+    store.dispatch(action);
+
+    expect(store.getState().masterKegList).toEqual(kegListReducer(undefined, action));
   });
+
 });
