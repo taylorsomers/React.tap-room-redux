@@ -142,7 +142,8 @@ KegControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    masterKegList: state
+    formVisibleOnPage: state.formVisibleOnPage,
+    masterKegList: state.masterKegList
   }
 }
 
