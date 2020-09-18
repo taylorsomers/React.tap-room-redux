@@ -1,4 +1,5 @@
 export default (state = {}, action) => {
+  return state;
   // const { kegName, brewery, price, alcoholContent, pints, id } = action;
   // switch (action.type) {
   //   case 'ADD_KEG':
