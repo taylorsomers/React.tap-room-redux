@@ -2,6 +2,25 @@ import kegListReducer from '../../reducers/keg-list-reducer';
 
 describe('kegListReducer', () => {
 
+  const currentState = {
+    1: {
+      kegName: 'Weasel Whistle',
+      brewery: 'Old Weasel Brewery',
+      price: '$45',
+      alcoholContent: 15,
+      pints: 124,
+      id: 1
+    },
+    2: {
+      kegName: 'Phone Whip',
+      brewery: 'What About Raho?',
+      price: '$45',
+      alcoholContent: 15,
+      pints: 124,
+      id: 2
+    }
+  }
+
   let action;
   const kegData = {
     kegName: 'Weasel Whistle',
@@ -38,5 +57,23 @@ describe('kegListReducer', () => {
         id: id
       }
     });
+  });
+
+  test('Should delete a keg from the list', () => {
+    action = {
+      type: 'DELETE_KEG',
+      id: 1
+    };
+
+    expect(kegListReducer(currentState, action)).toEqual({
+      2: {
+        kegName: 'Phone Whip',
+        brewery: 'What About Raho?',
+        price: '$45',
+        alcoholContent: 15,
+        pints: 124,
+        id: 2
+      }
+    })
   });
 });
