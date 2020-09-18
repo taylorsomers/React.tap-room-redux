@@ -29,10 +29,6 @@ class KegControl extends React.Component {
       alcoholContent: alcoholContent
     }
     dispatch(action);
-    this.setState({
-      editing: false,
-      selectedKeg: null
-    });
   }
 
   handleClick = () => {
