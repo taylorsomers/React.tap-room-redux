@@ -38,6 +38,12 @@ class KegControl extends React.Component {
         formVisibleOnPage: false,
         selectedKeg: null
       });
+    } else {
+      const { dispatch } = this.props;
+      const action = {
+        type: 'TOGGLE_FORM'
+      }
+      dispatch(action);
     }
   }
 
