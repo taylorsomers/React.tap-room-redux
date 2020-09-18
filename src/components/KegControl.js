@@ -56,12 +56,6 @@ class KegControl extends React.Component {
     });
   }
 
-  handleEditClick = () => {
-    this.setState({
-      editing: true
-    });
-  }
-
   handleSellingPint = (kegToDecrement) => {
     const editedMasterKegList = this.state.masterKegList
       .filter(keg => keg.id !== this.state.selectedKeg.id)
@@ -71,7 +65,13 @@ class KegControl extends React.Component {
       selectedKeg: null
     });
   }
-  
+
+  handleEditClick = () => {
+    this.setState({
+      editing: true
+    });
+  }
+
   handleEditingKegInList = (kegToEdit) => {
     const editedMasterKegList = this.state.masterKegList
       .filter(keg => keg.id !== this.state.selectedKeg.id)
@@ -84,11 +84,15 @@ class KegControl extends React.Component {
   }
 
   handleDeletingKeg = (id) => {
-    const newMasterKegList = this.state.masterKegList.filter(keg => keg.id !== id);
+    const { dispatch } = this.props;
+    const action = {
+      type: 'DELETE_KEG',
+      id: id
+    }
+    dispatch(action);
     this.setState({
-      masterKegList: newMasterKegList,
       selectedKeg: null
-    })
+    });
   }
 
   render(){
