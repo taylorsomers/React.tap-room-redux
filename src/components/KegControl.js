@@ -30,7 +30,8 @@ class KegControl extends React.Component {
     }
     dispatch(action);
     this.setState({
-      formVisibleOnPage: false
+      editing: false,
+      selectedKeg: null
     });
   }
 
